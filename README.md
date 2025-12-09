@@ -7,21 +7,30 @@
 https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partner.rhdh-use-case.prod&utm_source=webapp&utm_medium=share-link
 
 
-3. Replace Cluster URLs with new Cluster ID
+2b. In Github
 
+- Create a classic access token
+- Create an OAuth App
+    - Name rhdh
+    - Homepage: https://keycloak-rhdh-operator.appls.cluster-<guid>.dynamic.redhatworkshops.io/realms/rhdh/account
+    - Auth Callback: https://keycloak-rhdh-operator.appls.cluster-xg2zk.dynamic.redhatworkshops.io/realms/rhdh/broker/github/endpoint
+    - Register
+    - COpy Client ID
+    - Generate client secret
+    - Copy client secret
+    - Click "Update Application"
+
+
+3. Replace Cluster URLs with new Cluster ID
 
 - Find a cluster URL somewhere in the resources (e.g. rhdh/rhdh/5-app-config-rhdh.yaml)
 - Replace the Cluster ID
   - E.g. source "cluster-xg2zk.dynamic" target "cluster-9kpjf.dynamic"
-
-4. Check it in
+- IN KeycloakRealmImport resource
+  - -Replace clientId/Secret unter identityProviders
 
 
 3. Deploy a generic ArgoCD instance (if not already available)
-
-3b.
-
-Change in 5-app-config-rhdh.yaml: Argo admin password
 
 4. Deploy the ArgoCD apps in folder ArgoCD
 
@@ -32,7 +41,15 @@ Change in 5-app-config-rhdh.yaml: Argo admin password
   - Wait until the Keycloak Operator Installation is done
   - Sync the rest, should sync and progress into "healthy"
 
-6. Login in Keycloak 
+5b.
+
+- Edit rdhd/mainual/rdhd-secret.yaml (copy from *-example if not existing)
+    - Set token as K8S_SA_TOKEN
+    - Set Github classic token as GITHUB_TOKEN
+- Apply everything from rhdh/manual
+
+ 
+9. Login in Keycloak 
 
 - Find Secret demo-project/demo-keycloak-instance-initial-admin
 - Find Route demo-project/demo-keycloak-instance
@@ -45,11 +62,13 @@ Change in 5-app-config-rhdh.yaml: Argo admin password
     - Wait until the RHDH Operator Installation is done
     - Sync the rest, should sync, but devhub pods will fail
 - Retrieve the token from secret rhdh-k8s-sa-token and base64-decode it
-- Edit rdhd/mainual/rdhd-secret.yaml (copy from *-example if not existing)
-  - Set token as K8S_SA_TOKEN
-  - Set Github classic token as GITHUB_TOKEN 
-- Apply everything from rhdh/manual
-- 
+
+
+## Additional infos
+
+This is a project template:
+https://github.com/RedHatQuickCourses/RHDH_Golden_Path/blob/module2/all-templates.yaml
+ 
 ## Troubleshooting
 
 
