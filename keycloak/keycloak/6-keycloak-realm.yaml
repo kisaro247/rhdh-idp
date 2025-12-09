@@ -35,8 +35,8 @@ spec:
         protocol: openid-connect
         publicClient: false
         redirectUris:
+          - "*"
           #- "https://rhdh.apps.cluster-xg2zk.dynamic.redhatworkshops.io/api/auth/*"
-          -"*"
         rootUrl: "https://rhdh.apps.cluster-xg2zk.dynamic.redhatworkshops.io"
         adminUrl: "https://rhdh.apps.cluster-xg2zk.dynamic.redhatworkshops.io"
         baseUrl: "https://rhdh.apps.cluster-xg2zk.dynamic.redhatworkshops.io"
