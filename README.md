@@ -19,6 +19,10 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 
 3. Deploy a generic ArgoCD instance (if not already available)
 
+3b.
+
+Change in 5-app-config-rhdh.yaml: Argo admin password
+
 4. Deploy the ArgoCD apps in folder ArgoCD
 
 5. In ArgoCD
@@ -40,12 +44,12 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
     - First separately sync the Demo Project, operator subscription and Operator Group
     - Wait until the RHDH Operator Installation is done
     - Sync the rest, should sync, but devhub pods will fail
-- Apply rhdh/rhdh/3-5-ServiceAccount.yaml
 - Retrieve the token from secret rhdh-k8s-sa-token and base64-decode it
-- Edit secret rhdh-token
+- Edit rdhd/mainual/rdhd-secret.yaml (copy from *-example if not existing)
   - Set token as K8S_SA_TOKEN
   - Set Github classic token as GITHUB_TOKEN 
-
+- Apply everything from rhdh/manual
+- 
 ## Troubleshooting
 
 

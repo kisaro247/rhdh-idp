@@ -84,4 +84,4 @@ data:
             - name: default
               url: https://openshift-gitops-server-openshift-gitops.apps.cluster-xg2zk.dynamic.redhatworkshops.io
               username: admin
-              password: EPRX1odiOlqcVfIHuUN9Lek28tCjsMS0
+              password: ${ARGO_PASSWORD}
