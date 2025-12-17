@@ -7,28 +7,29 @@
 https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partner.rhdh-use-case.prod&utm_source=webapp&utm_medium=share-link
 
 
+3. Replace Cluster URLs with new Cluster ID
+
+- Find a cluster URL somewhere in the resources (e.g. rhdh/rhdh/5-app-config-rhdh.yaml)
+- Replace the Cluster ID
+    - E.g. source "cluster-xg2zk.dynamic" target "cluster-9kpjf.dynamic"
+
 2b. In Github
 
 - Create a classic access token
 - Create an OAuth App
     - Name rhdh
-    - Homepage: https://keycloak-rhdh-operator.appls.cluster-<guid>.dynamic.redhatworkshops.io/realms/rhdh/account
-    - Auth Callback: https://keycloak-rhdh-operator.appls.cluster-xg2zk.dynamic.redhatworkshops.io/realms/rhdh/broker/github/endpoint
+    - Homepage: `https://keycloak-rhdh-operator.appls.cluster-<guid>.dynamic.redhatworkshops.io/realms/rhdh/account`
+    - Auth Callback: `https://keycloak-rhdh-operator.appls.cluster-xg2zk.dynamic.redhatworkshops.io/realms/rhdh/broker/github/endpoint`
     - Register
     - COpy Client ID
     - Generate client secret
     - Copy client secret
     - Click "Update Application"
+- In keycloak/keycloak/6-keycloak-realm.yaml, KeycloakRealmImport resource
+    - -Replace clientId/Secret unter identityProviders
 
-
-3. Replace Cluster URLs with new Cluster ID
-
-- Find a cluster URL somewhere in the resources (e.g. rhdh/rhdh/5-app-config-rhdh.yaml)
-- Replace the Cluster ID
-  - E.g. source "cluster-xg2zk.dynamic" target "cluster-9kpjf.dynamic"
-- IN KeycloakRealmImport resource
-  - -Replace clientId/Secret unter identityProviders
-
+- Adapt branch names across all YAML files to match your branch (should be "phase-*" originally)"
+- Commit and push everything to github
 
 3. Deploy a generic ArgoCD instance (if not already available)
 
@@ -43,9 +44,9 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 
 5b.
 
-- Edit rdhd/mainual/rdhd-secret.yaml (copy from *-example if not existing)
-    - Set token as K8S_SA_TOKEN
-    - Set Github classic token as GITHUB_TOKEN
+- Edit rdhd/manual/rdhd-secret.yaml (copy from *-example if not existing)
+    - Set token as secret data field K8S_SA_TOKEN
+    - Set Github classic token as secret data field GITHUB_TOKEN
 - Apply everything from rhdh/manual
 
  
@@ -67,7 +68,9 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 ## Additional infos
 
 This is a project template:
-https://github.com/RedHatQuickCourses/RHDH_Golden_Path/blob/module2/all-templates.yaml
+https://github.com/kisaro247/RHDH_Golden_Path/blob/main/all-templates.yaml
+
+Import via Self Service -> Existing Repo
  
 ## Troubleshooting
 

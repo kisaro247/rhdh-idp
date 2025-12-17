@@ -12,7 +12,7 @@ spec:
   source:
     path: rhdh
     repoURL: https://github.com/kisaro247/rhdh-idp.git
-    targetRevision: phase-3-work
+    targetRevision: dev02
   syncPolicy:
     automated:
       selfHeal: false
