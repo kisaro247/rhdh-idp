@@ -2,18 +2,18 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: demo-project
+  name: rhdh-demo
   labels:
-    kubernetes.io/metadata.name: demo-project
+    kubernetes.io/metadata.name: rhdh-demo
   annotations:
     openshift.io/display-name: RHDH demo project
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: demo-project-group
-  namespace: demo-project
+  name: rhdh-demo-group
+  namespace: rhdh-demo
 spec:
   targetNamespaces:
-    - demo-project
+    - rhdh-rhdh-demo
 ...

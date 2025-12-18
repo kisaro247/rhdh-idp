@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: keycloak-postgres-pvc
-  namespace: demo-project
+  namespace: rhdh-demo
 spec:
   accessModes:
     - ReadWriteOnce
@@ -15,7 +15,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: keycloak-postgres
-  namespace: demo-project
+  namespace: rhdh-demo
 spec:
   replicas: 1
   selector:
@@ -56,7 +56,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: keycloak-db-secret
-  namespace: demo-project
+  namespace: rhdh-demo
 type: Opaque
 data:
   password: YXZlcnlzZWN1cmVwYXNzd29yZA==
@@ -66,7 +66,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: keycloak-postgres
-  namespace: demo-project
+  namespace: rhdh-demo
 spec:
   selector:
     app: keycloak-postgres

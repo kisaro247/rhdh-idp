@@ -52,8 +52,8 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
  
 9. Login in Keycloak 
 
-- Find Secret demo-project/demo-keycloak-instance-initial-admin
-- Find Route demo-project/demo-keycloak-instance
+- Find Secret rhdh-demo/demo-keycloak-instance-initial-admin
+- Find Route rhdh-demo/demo-keycloak-instance
 - Login on 2 with creds from 1
 
 7. In ArgoCD

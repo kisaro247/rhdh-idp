@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: dynamic-plugins-rhdh
-  namespace: demo-project
+  namespace: rhdh-demo
   labels:
     rhdh.redhat.com/ext-config-sync: "true"
 data:

@@ -3,7 +3,7 @@ apiVersion: k8s.keycloak.org/v2alpha1
 kind: Keycloak
 metadata:
   name: demo-keycloak-instance
-  namespace: demo-project
+  namespace: rhdh-demo
   labels:
     app: sso
 spec:

@@ -3,7 +3,7 @@ apiVersion: rhdh.redhat.com/v1alpha3
 kind: Backstage
 metadata:
   name: developer-hub
-  namespace: demo-project
+  namespace: rhdh-demo
   labels:
     app.kubernetes.io/name: backstage
 spec:
