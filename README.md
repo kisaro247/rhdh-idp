@@ -42,20 +42,22 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
   - Wait until the Keycloak Operator Installation is done
   - Sync the rest, should sync and progress into "healthy"
 
+5a. Login in Keycloak
+
+- Find Secret rhdh-demo/demo-keycloak-instance-initial-admin
+- Find Route rhdh-demo/demo-keycloak-instance
+- Login on 2 with creds from 1
+
+
 5b.
 
+- Deploy rhdh/manual/3-5-ServiceAccount.yaml, this will create a service account
 - Edit rdhd/manual/rdhd-secret.yaml (copy from *-example if not existing)
     - Set token as secret data field K8S_SA_TOKEN
     - Set Github classic token as secret data field GITHUB_TOKEN
 - Apply everything from rhdh/manual
 
  
-9. Login in Keycloak 
-
-- Find Secret rhdh-demo/demo-keycloak-instance-initial-admin
-- Find Route rhdh-demo/demo-keycloak-instance
-- Login on 2 with creds from 1
-
 7. In ArgoCD
 
 - on "devhub-deploy"

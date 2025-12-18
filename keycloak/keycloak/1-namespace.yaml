@@ -15,5 +15,5 @@ metadata:
   namespace: rhdh-demo
 spec:
   targetNamespaces:
-    - rhdh-rhdh-demo
+    - rhdh-demo
 ...
