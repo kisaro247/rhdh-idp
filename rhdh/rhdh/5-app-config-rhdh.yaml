@@ -83,5 +83,5 @@ data:
           instances:
             - name: default
               url: https://openshift-gitops-server-openshift-gitops.apps.dev02.ocp.consol.de
-              username: admin
+              username: ${ARGO_USERNAME}
               password: ${ARGO_PASSWORD}

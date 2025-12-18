@@ -25,8 +25,6 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
     - Generate client secret
     - Copy client secret
     - Click "Update Application"
-- In keycloak/keycloak/6-keycloak-realm.yaml, KeycloakRealmImport resource
-    - -Replace clientId/Secret unter identityProviders
 
 - Adapt branch names across all YAML files to match your branch (should be "phase-*" originally)"
 - Commit and push everything to github
@@ -42,6 +40,12 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
   - Wait until the Keycloak Operator Installation is done
   - Sync the rest, should sync and progress into "healthy"
 
+5aa. 
+
+- In keycloak/keycloak/6-keycloak-realm.yaml (copy from *-example), KeycloakRealmImport resource
+    - -Replace clientId/Secret unter identityProviders
+- Apply this resource
+
 5a. Login in Keycloak
 
 - Find Secret rhdh-demo/demo-keycloak-instance-initial-admin
@@ -49,12 +53,22 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 - Login on 2 with creds from 1
 
 
+5aa.
+
+- Get hold of an GitOps user to use by RHDH
+  - Optionally define a local user for this
+- Get hold of the users token
+
 5b.
 
-- Deploy rhdh/manual/3-5-ServiceAccount.yaml, this will create a service account
+- Deploy rhdh/manual/3-5-ServiceAccount.yaml, this will create a service account "rhdh-k8s-sa"
+- Get hold of its token
 - Edit rdhd/manual/rdhd-secret.yaml (copy from *-example if not existing)
-    - Set token as secret data field K8S_SA_TOKEN
+    - Set SA token as secret data field K8S_SA_TOKEN
     - Set Github classic token as secret data field GITHUB_TOKEN
+    - Set GitOps user name as secret data field ARGO_USERNAME
+    - Set GitOps user token as secret data field ARGO_PASSWORD
+    - BACKEND_SECRET can stay the same, this is a custom secret necessary for Backstage to persist sessions
 - Apply everything from rhdh/manual
 
  
@@ -63,8 +77,14 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 - on "devhub-deploy"
     - First separately sync the Demo Project, operator subscription and Operator Group
     - Wait until the RHDH Operator Installation is done
-    - Sync the rest, should sync, but devhub pods will fail
-- Retrieve the token from secret rhdh-k8s-sa-token and base64-decode it
+    - Sync the rest
+
+
+8. Try login
+
+- Get route to rhdh and try to login
+  - - Sign in with Github
+
 
 
 ## Additional infos
