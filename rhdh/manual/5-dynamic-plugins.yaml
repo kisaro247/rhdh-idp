@@ -23,4 +23,5 @@ data:
         disabled: false
       - package: './dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic'
         disabled: false
-...
+      - package: "@redhat/backstage-plugin-orchestrator@1.8.2"
+        disabled: false
