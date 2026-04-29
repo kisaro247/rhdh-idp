@@ -63,7 +63,7 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 
 - Deploy rhdh/manual/3-5-ServiceAccount.yaml, this will create a service account "rhdh-k8s-sa"
 - Get hold of its token
-- Edit rdhd/manual/rdhd-secret.yaml (copy from *-example if not existing)
+- Edit rdhd/manual/rdhd-secrets.yaml (copy from *-example if not existing)
     - Set SA token as secret data field K8S_SA_TOKEN
     - Set Github classic token as secret data field GITHUB_TOKEN
     - Set GitOps user name as secret data field ARGO_USERNAME
