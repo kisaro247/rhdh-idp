@@ -14,7 +14,7 @@ spec:
   hostname:
     adminUrl: 'https://keycloak-rhdh-operator.apps.dev02.ocp.consol.de'
     hostname: keycloak-rhdh-operator.apps.dev02.ocp.consol.de
-  instances: 0
+  instances: 1
   db:
     vendor: postgres
     host: keycloak-postgres

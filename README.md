@@ -42,7 +42,7 @@ https://catalog.partner.demo.redhat.com/catalog?item=babylon-catalog-prod/partne
 
 5aa. 
 
-- In keycloak/keycloak/6-keycloak-realm.yaml (copy from *-example), KeycloakRealmImport resource
+- In keycloak/manual/6-keycloak-realm.yaml (copy from *-example), KeycloakRealmImport resource
     - -Replace clientId/Secret unter identityProviders
 - Apply this resource
 
