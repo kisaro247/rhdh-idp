@@ -77,11 +77,11 @@ data:
       github:
         token: ${GITHUB_TOKEN}                    
 
-    #argocd:
-    #  appLocatorMethods:
-    #    - type: config
-    #      instances:
-    #        - name: default
-    #          url: https://openshift-gitops-server-openshift-gitops.apps.dev02.ocp.consol.de
-    #          username: ${ARGO_USERNAME}
-    #          password: ${ARGO_PASSWORD}
+    argocd:
+      appLocatorMethods:
+        - type: config
+          instances:
+            - name: default
+              url: https://openshift-gitops-server-openshift-gitops.apps.dev02.ocp.consol.de
+              username: ${ARGO_USERNAME}
+              password: ${ARGO_PASSWORD}
