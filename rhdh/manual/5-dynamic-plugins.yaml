@@ -11,17 +11,35 @@ data:
     includes:
       - dynamic-plugins.default.yaml
     plugins:
-      - package: './dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic'
-        disabled: true
-      - package: './dynamic-plugins/dist/backstage-community-plugin-topology'
-        disabled: true
-      - package: './dynamic-plugins/dist/backstage-plugin-kubernetes'
-        disabled: true
-      - package: './dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic'
-        disabled: true
-      - package: './dynamic-plugins/dist/backstage-community-plugin-redhat-argocd@2.3.0'
-        disabled: true
-      - package: './dynamic-plugins/dist/roadiehq-scaffolder-backend-argocd-dynamic'
-        disabled: true
-      - package: "@redhat/backstage-plugin-orchestrator@1.8.2"
-        disabled: true
+      - package: './dynamic-plugins/dist/backstage-plugin-scaffolder-backend-module-github-dynamic' #:0.9.2
+        disabled: false
+      - package: './dynamic-plugins/dist/backstage-community-plugin-topology' #:2.9.4
+        disabled: false
+      - package: './dynamic-plugins/dist/backstage-plugin-kubernetes' #:0.12.13
+        disabled: false
+      - package: './dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic' #:0.20.4
+        disabled: false
+      #- package: oci://registry.access.redhat.com/rhdh/red-hat-developer-hub-backstage-plugin-orchestrator-form-widgets@sha256:90ad03763a07ab8f49f48a0eaafdb73f792eab033089637a37d8b7a259cf75a9
+      #  disabled: false  
+      
+      
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-backstage-plugin-argo-cd-backend:bs_1.45.3__4.6.0
+        disabled: false
+      - package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-argocd:bs_1.45.3__2.4.3
+        disabled: false
+        
+    
+      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/roadiehq-scaffolder-backend-argocd:bs_1.45.3__1.8.1
+      #  disabled: false
+      #- package: oci://ghcr.io/redhat-developer/rhdh-plugin-export-overlays/backstage-community-plugin-argocd-backend:bs_1.45.3__1.0.2
+      #  disabled: false
+      #  pluginConfig:
+      #    argocd:
+      #      username: ${ARGOCD_USERNAME}
+      #      password: ${ARGOCD_PASSWORD}
+      #      appLocatorMethods:
+      #        - type: config
+      #          instances:
+      #            - name: argoInstance1
+      #              url: ${ARGOCD_INSTANCE1_URL}
+      #              token: ${ARGOCD_AUTH_TOKEN}
